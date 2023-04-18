@@ -1,0 +1,11 @@
+Resources:
+  S3Bucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: STD21033
+  S3BucketSSMParameter:
+    Type: 'AWS::SSM::Parameter'
+    Properties:
+      Name: /app/s3-bucket-name
+      Type: String
+      Value: !GetAtt 'S3Bucket.Arn'
